@@ -1,21 +1,6 @@
-// import Jsx from "./components/Jsx";
-// import Parent from "./components/Parent";
-// import Counter from "./components/Counter";
-// import Say from "./components/Say";
-//import EventPractice from "./components/EventPractice";
-import IterationSample from "./components/IterationSample";
+import Todo from "./components/ToDo";
 
 function App() {
-  return (
-    <div>
-      {/* <Jsx />
-      <Parent /> 
-      <Counter />
-      <Say />
-      <EventPractice />*/}
-      <IterationSample />
-    </div>
-  );
+  return <Todo />;
 }
-
 export default App;

@@ -1,6 +1,7 @@
 const MyComponents = (props) => {
+  // props 빼고 비구조화 가능
   const name3 = props.name3; // 변수로 지정해서 사용할수도 있음.
-  //{name3, children, name2, name} 위의 프롭스를 빼고 이 데이터를 넣어 비구조화도됨 이경우 앞의 props를 빼도됨 단, 무조건 중괄호를 넣어야 인식함
+  //{name3, children, name2, name} 위의 프롭스를 빼고 이 데이터를 넣어 비구조화로 넣어도됨 단, 무조건 중괄호를 넣어야 인식함
   return (
     <div>
       반갑습니다, 제이름은 {props.name}입니다. {props.name2}
