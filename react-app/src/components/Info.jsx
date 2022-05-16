@@ -1,14 +1,15 @@
-//import { useReducer } from "react";
-//import { useEffect, useState,  } from "react";
+// import { useReducer } from "react";
+// import { useEffect, useState,  } from "react";
 
+import { useEffect } from "react";
 import useInputs from "../hooks/useInputs";
 
-function reducer(state, action) {
-  return {
-    ...state,
-    [action.name]: action.value,
-  };
-}
+// function reducer(state, action) {
+//   return {
+//     ...state,
+//     [action.name]: action.value,
+//   };
+// }
 
 const Info = () => {
   const [state, onChange] = useInputs({
@@ -16,6 +17,9 @@ const Info = () => {
     nickname: "",
   });
   const { name, nickname } = state;
+
+  useEffect(() => {}, [name]); // 마운트될때 딱 한번만 실행됨
+
   // const onChange = (e) => {
   //   dispatch(e.target);
   // };

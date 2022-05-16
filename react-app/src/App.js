@@ -1,6 +1,6 @@
-import Todo from "./components/ToDo";
+import Bootstrap from "./components/Bootstrap/Index";
 
 function App() {
-  return <Todo />;
+  return <Bootstrap />;
 }
 export default App;

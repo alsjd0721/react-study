@@ -1,58 +1,44 @@
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
+import Form from "./Form";
+import Item from "./Item";
 
-const ToDo = () => {
-  const [todoList, setTodoList] = useState([]);
-  const [todoNow, setTodoNow] = useState("");
-  const nextTodo = [...todoNow, todoList];
-  const nextTodoId = useRef(0);
+const Todo = () => {
+  const [list, setList] = useState([]);
+  const nextId = useRef(1);
 
-  const handleSubmit = (e) => {
-    e.preventDefalut();
-    setTodoList(nextTodo);
-    setTodoNow("");
-    nextTodoId.current++;
+  const handleAdd = (text) => {
+    // 텍스트를 리스트에 추가하는 코드
+    const nextList = [...list, { id: nextId.current, text, isDone: false }]; // { id: nextId.current, text, isDone: true } item 컴포넌트
+    setList(nextList);
+    nextId.current++;
   };
-
   const handleDelete = (id) => {
-    alert("삭제 동작 확인입니다.");
-    const nextList = todoList.filter((item) => item.id !== id);
-    setTodoList(nextList);
+    const nextList = list.filter((item) => item.id !== id);
+    setList(nextList);
+  };
+  const handleChecked = (id) => {
+    //id로 바꿀 item 찾아서 isDone 값을 반대로
+    const newList = list.map((item) =>
+      item.id === id ? { ...item, isDone: !item.isDone } : item
+    );
+    setList(newList);
   };
   return (
     <Layout>
       <Container>
         <Title>일정 관리</Title>
-        <Form onSubmit={handleSubmit}>
-          <InputText
-            value={todoNow}
-            placeholder="할일을 입력해주세요"
-            onChange={(e) => setTodoNow(e.target.value)}
-            ref={nextTodo}
-          />
-          <BtnSubmit onClick={handleSubmit}>추가</BtnSubmit>
-        </Form>
+        <Form onAdd={handleAdd} />
         <Body>
           <List>
-            {todoList.map((item, i) => (
-              <Item key={item.id}>
-                {/*아이템을 맵함수로 옮겨서 */}
-                <label>
-                  <input type="checkbox" />
-                  <Content>리액트 기초 알아보기</Content>
-                </label>
-                <BtnDelete onClick={handleDelete}>삭제</BtnDelete>
-              </Item>
+            {list.map((item) => (
+              <Item
+                key={item.id}
+                data={item}
+                onDelete={handleDelete}
+                onChecked={handleChecked}
+              />
             ))}
-            <Item>
-              {" "}
-              {/*아이템을 맵함수로 옮겨서 */}
-              <label>
-                <input type="checkbox" />
-                <Content>리액트 기초 알아보기</Content>
-              </label>
-              <BtnDelete onClick={handleDelete}>삭제</BtnDelete>
-            </Item>
           </List>
         </Body>
       </Container>
@@ -61,16 +47,15 @@ const ToDo = () => {
 };
 
 const Layout = styled.div`
-  background: #3cc77b;
+  background: #e9ecef;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 const Container = styled.div`
-  max-width: 400px;
+  width: 400px;
 `;
-
 const Title = styled.div`
   background: #22b8cf;
   text-align: center;
@@ -78,33 +63,14 @@ const Title = styled.div`
   padding: 10px;
 `;
 
-const Form = styled.form`
-  display: flex;
-`;
-
-const InputText = styled.input`
-  flex: 1;
-`;
-const BtnSubmit = styled.button``;
-
 const Body = styled.div`
   background: #fff;
   min-height: 300px;
 `;
-
 const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
 `;
-const Item = styled.li`
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  & + & {
-    border-top: 1px solid #efefef;
-  }
-`;
-const Content = styled.span``;
-const BtnDelete = styled.button``;
-export default ToDo;
+
+export default Todo;

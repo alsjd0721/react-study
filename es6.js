@@ -124,3 +124,8 @@ const obj2 = { ...obj1 };
 //코드가 문제없으면 임포트가 잘못됬는지 확인
 // 리액트 설치는 npx react-create-app 파일 이름
 //리액트는 선언형 프로그램
+//강사님 소스 클론 : https://github.com/jackiehoon/dongyang-react-study
+// 스타일 다운로드 npx i styled-components
+// CSR(), SSR(Server Side Rendering)
+// set함수는 비동기임 같은 set함수로 실행할려면 () => 과 같은 콜백함수를 넣으면 실햄
+// context 를 잘안쓰는 이유 : 상관 없는 컴포넌트까지 랜더링을 해버림 큰 프로젝트에선 효율성이 낮음

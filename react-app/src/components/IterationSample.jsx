@@ -10,12 +10,12 @@ const IterationSample = () => {
   const [text, setText] = useState("");
   const [names, setNames] = useState(defaultNames);
   //const [nextId, setnextId] = useState(defaultNames.length + 1);
-  const nextId = useRef(defaultNames.length + 1);
+  const nextId = useRef(defaultNames.length + 1); //ref로 선언하게되면 반드시 .current로 접근해야함
 
   const handleClick = (e) => {
     if (!text) return;
     alert(text + "를 추가하셧습니다");
-    const newNames = [...names, { id: nextId.current, text: text }]; //{ id: nextId, text: text }
+    const newNames = [...names, { id: nextId.current, text: text }]; //{ id: nextId, text: text } <- 객체추가
     setNames(newNames);
     setText("");
     nextId.current = nextId.current + 1;

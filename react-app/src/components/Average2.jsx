@@ -20,7 +20,7 @@ const Average2 = () => {
     const nextList = list.concat(parseInt(number)); // concat은 새로운 배열을 만들때 쓸수 있음
     setList(nextList);
     setNumber("");
-    inputEl.current.focus();
+    inputEl.current.focus(); //.FOCUS()는 DOM의 함수를 사용함
   }, [list, number]);
 
   const avg = useMemo(() => getAverage(list), [list]);
