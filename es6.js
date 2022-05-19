@@ -134,3 +134,4 @@ const obj2 = { ...obj1 };
 //client ID : 9TqOB6f31r_ZgYF_I2o9 || SECRET : sqc3ZDhXp6
 // npm i style-components react-router-dom axios
 // 집에서 따로 실습하게 될때 참고해서 다운 받을것
+// 김재훈 강사님 01053935516
