@@ -132,3 +132,5 @@ const obj2 = { ...obj1 };
 // recoil, redux : 전역상태관리(로그인여부 등)
 // react-query(api 관련)
 //client ID : 9TqOB6f31r_ZgYF_I2o9 || SECRET : sqc3ZDhXp6
+// npm i style-components react-router-dom axios
+// 집에서 따로 실습하게 될때 참고해서 다운 받을것
