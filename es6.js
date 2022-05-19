@@ -129,3 +129,6 @@ const obj2 = { ...obj1 };
 // CSR(), SSR(Server Side Rendering)
 // set함수는 비동기임 같은 set함수로 실행할려면 () => 과 같은 콜백함수를 넣으면 실햄
 // context 를 잘안쓰는 이유 : 상관 없는 컴포넌트까지 랜더링을 해버림 큰 프로젝트에선 효율성이 낮음
+// recoil, redux : 전역상태관리(로그인여부 등)
+// react-query(api 관련)
+//client ID : 9TqOB6f31r_ZgYF_I2o9 || SECRET : sqc3ZDhXp6

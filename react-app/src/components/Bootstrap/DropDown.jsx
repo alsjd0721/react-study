@@ -14,6 +14,7 @@ const DropDown = () => {
     const onClick = (e) => {
       console.log(e.target);
       console.log(buttonEl.current);
+      //클릭한게 버튼이 아닐때만 false로
       if (e.target !== buttonEl.current) {
         setIsShow(false);
       }
